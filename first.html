@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Juggling Football</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #football {
+            width: 100px;
+            position: relative;
+            transform-origin: center center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id="football" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" alt="Football">
+
+    <script>
+        const ball = document.getElementById("football");
+
+        let angle = 0;
+        let t = 0;
+
+        function animateBall() {
+
+            const bounce = Math.sin(t) * 40;
+            angle += 4;
+            ball.style.transform = `translateY(${bounce}px) rotate(${angle}deg)`;
+
+            t += 0.1;
+            requestAnimationFrame(animateBall);
+        }
+
+        animateBall();
+    </script>
+
+</body>
+
+</html>
